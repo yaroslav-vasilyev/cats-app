@@ -8,19 +8,25 @@
             <mat-label>Порода</mat-label>
             <mat-select formControlName="breed">
               <mat-option [value]="''">Усі котики</mat-option>
-              <mat-option *ngFor="let breed of breeds" [value]="breed.id">{{ breed.name }}</mat-option>
+              <mat-option *ngFor="let breed of breeds" [value]="breed.id">
+                {{ breed.name }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Кількість котиків</mat-label>
             <mat-select formControlName="limit">
-              <mat-option *ngFor="let option of limitOptions" [value]="option">{{ option }}</mat-option>
+              <mat-option *ngFor="let option of limitOptions" [value]="option">
+                {{ option }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
-        <button class="main-button" mat-raised-button color="primary" (click)="search()">Знайти</button>
+        <button class="main-button" mat-raised-button color="primary" (click)="search()">
+          Знайти
+        </button>
       </form>
     </div>
   </div>

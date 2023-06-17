@@ -38,16 +38,14 @@ export class CatSearchComponent implements OnInit {
 
     this.isLoading = true;
 
-    this.isLoading = true;
-
     if (breedId) {
       this.catApiService.searchCatsByBreed(breedId, limit).subscribe((data: any) => {
-        this.cats = data.slice(0, limit).map((cat: any) => ({ ...cat, loaded: false })); // Добавляем свойство loaded для каждой картинки
+        this.cats = data.slice(0, limit).map((cat: any) => ({ ...cat, loaded: false }));
         this.isLoading = false;
       });
     } else {
       this.catApiService.searchAllCats(limit).subscribe((data: any) => {
-        this.cats = data.slice(0, limit).map((cat: any) => ({ ...cat, loaded: false })); // Добавляем свойство loaded для каждой картинки
+        this.cats = data.slice(0, limit).map((cat: any) => ({ ...cat, loaded: false }));
         this.isLoading = false;
       });
     }
