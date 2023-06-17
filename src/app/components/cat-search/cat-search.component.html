@@ -1,0 +1,43 @@
+<div class="cats-search">
+  <div class="cats-search-form">
+    <h2>Пошук котиків</h2>
+    <div class="cats-search-form--container">
+      <form [formGroup]="searchForm">
+        <div class="form-fields">
+          <mat-form-field>
+            <mat-label>Порода</mat-label>
+            <mat-select formControlName="breed">
+              <mat-option [value]="''">Усі котики</mat-option>
+              <mat-option *ngFor="let breed of breeds" [value]="breed.id">{{ breed.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Кількість котиків</mat-label>
+            <mat-select formControlName="limit">
+              <mat-option *ngFor="let option of limitOptions" [value]="option">{{ option }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <button class="main-button" mat-raised-button color="primary" (click)="search()">Знайти</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="main-loader" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="cats" *ngIf="cats.length > 0 && !isLoading">
+    <h1 class="cats__text-header">Котики</h1>
+    <div class="cats__wrapper">
+      <div class="cat-image-container" *ngFor="let cat of cats">
+        <div class="cat-image-overlay" *ngIf="!cat.loaded">
+          <mat-spinner></mat-spinner>
+        </div>
+        <img [src]="cat.url" alt="Кот" width="300" height="200" (load)="cat.loaded = true">
+      </div>
+    </div>
+  </div>
+</div>

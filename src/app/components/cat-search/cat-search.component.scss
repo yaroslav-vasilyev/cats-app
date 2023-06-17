@@ -1,0 +1,82 @@
+@import './styles/mixins';
+
+.cats-search {
+  display: flex;
+  gap: 30px;
+  margin: 20px 20px;
+  flex-direction: column;
+}
+
+.cats-search-form {
+  width: max-content;
+  text-align: center;
+
+  @extend %main-block-background;
+
+  align-self: center;
+}
+
+.form-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.cats {
+  &__text-header {
+    text-align: center;
+
+    @extend %main-block-background;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.cat-image-container {
+  flex-wrap: wrap;
+  position: relative;
+  width: max-content;
+
+  @extend %main-block-background;
+
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cat-image-container img {
+  border-radius: 5px;
+}
+
+.cat-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.main-loader {
+  justify-self: center;
+  align-self: center;
+}
+
+.main-button {
+  margin-left: 10px;
+}
+
